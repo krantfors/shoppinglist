@@ -50,9 +50,9 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.user = user;
+        this.$router.push('/list');
       } else {
-        this.user = null;
+        this.$router.push('/login');
       }
     });
   },
@@ -70,7 +70,7 @@ export default {
   }
 };
 </script>
-    
+
 
 <style>
 #app {
@@ -125,7 +125,7 @@ h1 {
 }
 
 .profil {
-  padding-right: 0px; 
+  padding-right: 0px;
 }
 
 .profil:hover {
