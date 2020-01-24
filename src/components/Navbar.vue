@@ -15,7 +15,7 @@
       <h1>inköp halmstad</h1>
     </div>
     <div id="nav" class="nav">
-      <router-link to="/">inköpslista</router-link> |
+      <router-link to="/list">inköpslista</router-link> |
       <router-link to="/tips">maria tipsar</router-link>
     </div>
   </div>
@@ -50,9 +50,9 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.$router.push('/list');
+        this.user = user
       } else {
-        this.$router.push('/login');
+        this.user = null
       }
     });
   },

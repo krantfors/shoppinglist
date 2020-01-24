@@ -56,6 +56,7 @@ export default {
               })
               .then(cred => {
                 console.log(cred.user.email);
+
                 this.$router.push({ name: "Lista" });
               });
           } else {
