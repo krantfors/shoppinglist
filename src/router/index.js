@@ -11,14 +11,6 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Main',
-    component: Login,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/list',
     name: 'Lista',
     component: Lista,
     meta: {

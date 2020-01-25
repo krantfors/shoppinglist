@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a href="/">
+    <router-link to="/">
       <img id="logo" alt="Jayway" src="../assets/jayway3.png" width="130" />
-    </a>
+    </router-link>
     <a class="topbar" v-if="user" @click="logOut">logga ut</a>
     <span class="topbar profil">
       <i class="material-icons add">person_outline</i>
@@ -15,7 +15,7 @@
       <h1>inköp halmstad</h1>
     </div>
     <div id="nav" class="nav">
-      <router-link to="/list">inköpslista</router-link> |
+      <router-link to="/">inköpslista</router-link> |
       <router-link to="/tips">maria tipsar</router-link>
     </div>
   </div>
