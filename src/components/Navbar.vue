@@ -6,11 +6,8 @@
     <a class="topbar" v-if="user" @click="logOut">logga ut</a>
     <span class="topbar profil">
       <i class="material-icons add">person_outline</i>
-      {{firstname}}
+      {{displayName}}
     </span>
-    <a class="topbar" v-if="!user" @click="logOut">logga in</a>
-    <a class="topbar" v-if="!user" @click="logOut">skapa konto</a>
-
     <div id="title" class="title">
       <h1>inköp halmstad</h1>
     </div>
@@ -30,7 +27,7 @@ export default {
   data() {
     return {
       user: null,
-      firstname: null,
+      displayName: null,
       email: null
     };
   },
@@ -43,7 +40,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push({ name: "Login" });
+          this.$router.push({ name: "Auth" });
         });
     }
   },
@@ -59,11 +56,7 @@ export default {
   updated() {
     let user = firebase.auth().currentUser;
     if (user) {
-      let firstname = null;
-      let str = user.email.split(".", 1);
-      firstname = str[0];
-      console.log(firstname);
-      this.firstname = firstname;
+      this.displayName = user.displayName;
     } else {
       console.log("ingen inloggad");
     }
