@@ -12,9 +12,10 @@ Vue.use(firestorePlugin)
 ///////////// Initialize firebase ///////////////
 export const db = firebase
   .initializeApp({
-  apiKey: "password",
-  projectId: "food-ecbab",
-  databaseURL: "https://food-ecbab.firebaseio.com"
+  apiKey: '### lösenord ####',
+  projectId: 'food-ecbab',
+  databaseURL: '### databaseURL ###',
+  authDomain: '### authDomain ###',
   })
   .firestore()
 

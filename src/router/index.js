@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Lista from '../views/Lista.vue'
 import Tips from '../views/Tips.vue'
-import Signup from '../components/Signup'
-import Login from '../components/Login'
+import Auth from '../components/Auth'
 import firebase from 'firebase/app'
 
 Vue.use(VueRouter)
@@ -26,17 +25,9 @@ const routes = [
     }
   },
   {
-    path: '/signup',
-    name: 'Signup',
-    component: Signup,
-    meta: {
-      requiresAuth: false
-    }
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
+    path: '/auth',
+    name: 'Auth',
+    component: Auth,
     meta: {
       requiresAuth: false
     }
@@ -54,7 +45,7 @@ router.beforeEach((to, from, next) => {
     if (firebase.auth().currentUser) {
       next()
     } else {
-      next({ path: '/login' })
+      next({ path: '/auth' })
     }
   }
   next()
