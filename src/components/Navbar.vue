@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a href="/">
+    <router-link to="/">
       <img id="logo" alt="Jayway" src="../assets/jayway3.png" width="130" />
-    </a>
+    </router-link>
     <a class="topbar" v-if="user" @click="logOut">logga ut</a>
     <span class="topbar profil">
       <i class="material-icons add">person_outline</i>
@@ -50,9 +50,9 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.user = user;
+        this.user = user
       } else {
-        this.user = null;
+        this.user = null
       }
     });
   },
@@ -70,7 +70,7 @@ export default {
   }
 };
 </script>
-    
+
 
 <style>
 #app {
@@ -125,7 +125,7 @@ h1 {
 }
 
 .profil {
-  padding-right: 0px; 
+  padding-right: 0px;
 }
 
 .profil:hover {
